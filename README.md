@@ -1,1 +1,1 @@
-# Divide-Conquer
+# Divide + Conquer
