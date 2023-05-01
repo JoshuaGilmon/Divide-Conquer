@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <title>GSW Math Tournament</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="" name="keywords">
+        <meta content="" name="description">
+    
+        <!-- Favicon -->
+        <!--- <link href="/css/Templates/solartec-1.0.0/img/favicon.ico" rel="icon"> --->
+    
+        <!-- Google Web Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@500;700;900&display=swap" rel="stylesheet"> 
+    
+        <!-- Icon Font Stylesheet -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    
+        <!-- Libraries Stylesheet -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta2/dist/css/bootstrap-select.min.css">
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link href="CSS/custom.css" rel="stylesheet">
+    </head>
+
+<body>
+    <!-- Topbar Start -->
+    <div class="container-fluid gsw-primary p-0" style="z-index: 500;">
+        <div class="row gx-0 d-none d-lg-flex">
+            <div class="col-lg-7 px-5 text-start">
+                <div class="h-100 d-inline-flex align-items-center me-4">
+                    <small class="fa fa-map-marker-alt gsw-text-secondary me-2"></small>
+                    <small class="text-white">800 Georgia Southwestern State University Dr, Americus, GA 31709</small>
+                </div>
+                <div class="h-100 d-inline-flex align-items-center">
+                    <small class="far fa-clock gsw-text-secondary me-2"></small>
+                    <small class="text-white">Mon - Fri : 08:00 AM - 05:00 PM</small>
+                </div>
+            </div>
+            <div class="col-lg-5 px-5 text-end">
+                <div class="h-100 d-inline-flex align-items-center me-4">
+                    <small class="fa fa-phone-alt gsw-text-secondary me-2"></small>
+                    <small class="text-white">877-871-4594</small>
+                </div>
+                <div class="h-100 d-inline-flex align-items-center mx-n2">
+                    <a class="btn btn-square btn-link rounded-0 border-0 border-end border-secondary gsw-text-secondary" href="https://www.facebook.com/GeorgiaSouthwestern/"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-square btn-link rounded-0 border-0 border-end border-secondary gsw-text-secondary" href="https://twitter.com/GaSouthwestern"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-square btn-link rounded-0 border-0 border-end border-secondary gsw-text-secondary" href="https://www.linkedin.com/school/georgia-southwestern-state-university/"><i class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-square btn-link rounded-0 gsw-text-secondary" href="http://www.instagram.com/georgiasouthwestern"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Topbar End -->
+
+    <!-- Navbar Start -->
+    <nav class="container-fluid navbar navbar-expand-lg navbar-light sticky-top p-0" style="background-color: #e3e3e3; z-index: 500;">
+      <a href="index.html" class="navbar-brand mr-auto d-flex align-items-center border-end px-4 px-lg-5">
+          <h2 class="m-0 gsw-text-primary">Divide-Conquer</h2>
+      </a>
+      <button type="button" class="navbar-toggler me-2" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+          <div class="navbar-nav ms-auto p-2 p-lg-0">
+               <div class="nav-item dropdown">
+                  <a href="" class="nav-link dropdown-toggle" style="padding-right: 150px;" data-bs-toggle="dropdown">Manage</a>
+                  <div class="dropdown-menu bg-light m-0">
+                      <button href="" id="myButton2" class="dropdown-item">Teams</button>
+                      <button href="" id="myButton1" class="dropdown-item" style="padding-right: 150px;">School</button>
+              </div>
+  </nav>
+  <!-- Navbar End -->
+    <div class="container">
+        <h1 class="gsw-text-primary" style="text-align: center; padding: 20px;">
+            Edit School Information
+          </h1>                      
+    </div>    
+    <div class="text-center">
+    <form id="update-record-form">
+        <div class="text-center">
+        </div>
+        <br>
+        <br>
+      </div>
+      <div class="text-center" style="margin-top: 20px;">
+      <button class="btn btn-primary btn-outline-light gsw-secondary gsw-text-primary rounded-0 py-4 px-lg-5"type="submit">
+        Submit
+    </button>
+  </div>
+    </form>
+  
+  <!-- JavaScript code -->
+  <script>
+    var queryString = window.location.search;
+        var urlParams = new URLSearchParams(queryString);
+        var id = urlParams.get('ID');
+
+        const myButton2 = document.getElementById('myButton2');
+const myButton1 = document.getElementById('myButton1');
+
+myButton2.onclick = function() {
+  window.location.href = `/view_teams.html?ID=${id}`;
+};
+
+myButton1.onclick = function() {
+  window.location.href = `/school.html?ID=${id}`;
+};
+
+const url2 = `https://math.gswcm.net:443/JS/get_school?variable=${id}`;
+      fetch(url2)
+      .then(response => response.json())
+      .then(data => {
+        const url = `https://math.gswcm.net:443/JS/data_noas?variable=${data[0].SchoolPK}`;
+
+        const myVariable = data[0].SchoolPK;
+
+        console.log(myVariable)
+
+      fetch(url)
+  .then(response => response.json())
+  .then(data => {
+    // 5. Parse the JSON response and use the data to generate the form dynamically
+    const form = document.getElementById('update-record-form');
+    console.log(data)
+    data.forEach(item => {
+
+      const label2 = document.createElement('label')
+      label2.textContent = 'Division'
+      form.appendChild(label2)
+
+      const br9 = document.createElement('br');
+      form.appendChild(br9)
+
+      const select = document.createElement('select')
+      const option1 = document.createElement('option')
+      option1.value = '1'
+      option1.textContent = 'A'
+      select.appendChild(option1)
+      const option2 = document.createElement('option')
+      option2.value = '2'
+      option2.textContent = 'AA'
+      select.appendChild(option2)
+      const option3 = document.createElement('option')
+      option3.value = '3'
+      option3.textContent = 'AAA'
+      select.appendChild(option3)
+      const option4 = document.createElement('option')
+      option4.value = '4'
+      option4.textContent = 'AAAA'
+      select.appendChild(option4)
+      const option5 = document.createElement('option')
+      option5.value = '5'
+      option5.textContent = 'AAAAA'
+      select.appendChild(option5)
+      const option6 = document.createElement('option')
+      option6.value = '6'
+      option6.textContent = 'AAAAAA'
+      select.appendChild(option6)
+      const option7 = document.createElement('option')
+      option7.value = '7'
+      option7.textContent = 'AAAAAAA'
+      select.appendChild(option7)
+      const option8 = document.createElement('option')
+      option8.value = '8'
+      option8.textContent = 'AAAAAAAA'
+      select.appendChild(option8)
+      const option9 = document.createElement('option')
+      option9.value = '9'
+      option9.textContent = 'Other'
+      select.appendChild(option9)
+
+      select.value = item.Division_FK
+      select.name = 'field2'
+      form.appendChild(select)
+
+      const br1 = document.createElement('br');
+      form.appendChild(br1)
+
+      const label3 = document.createElement('label')
+      label3.textContent = 'Meal Tickets'
+      form.appendChild(label3)
+
+      const br10 = document.createElement('br');
+      form.appendChild(br10)
+
+      const field3 = document.createElement('input');
+      field3.type = 'text';
+      field3.name = 'field3';
+      field3.value = item.MealTicket;
+      form.appendChild(field3);
+
+      const br2 = document.createElement('br');
+      form.appendChild(br2)
+
+      const label4 = document.createElement('label')
+      label4.textContent = 'Sponsor Name'
+      form.appendChild(label4)
+
+      const br11 = document.createElement('br');
+      form.appendChild(br11)
+
+      const field4 = document.createElement('input');
+      field4.type = 'text';
+      field4.name = 'field4';
+      field4.value = item.SponsorName;
+      form.appendChild(field4);
+
+      const br3 = document.createElement('br');
+      form.appendChild(br3)
+
+      const label5 = document.createElement('label')
+      label5.textContent = 'Sponsor Email'
+      form.appendChild(label5)
+
+      const br12 = document.createElement('br');
+      form.appendChild(br12)
+
+      const field5 = document.createElement('input');
+      field5.type = 'text';
+      field5.name = 'field5';
+      field5.value = item.SponsorEmail;
+      form.appendChild(field5);
+
+      const br4 = document.createElement('br');
+      form.appendChild(br4)
+
+      const label6 = document.createElement('label')
+      label6.textContent = 'Sponsor Number'
+      form.appendChild(label6)
+
+      const br13 = document.createElement('br');
+      form.appendChild(br13)
+
+      const field6 = document.createElement('input');
+      field6.type = 'text';
+      field6.name = 'field6';
+      field6.value = item.SponsorNumber;
+      form.appendChild(field6);
+
+      const br5 = document.createElement('br');
+      form.appendChild(br5)
+
+      const label7 = document.createElement('label')
+      label7.textContent = 'School Name'
+      form.appendChild(label7)
+
+      const br14 = document.createElement('br');
+      form.appendChild(br14)
+
+      const field7 = document.createElement('input');
+      field7.type = 'text';
+      field7.name = 'field7';
+      field7.id = 'field7'
+      field7.value = item.SchoolName;
+      form.appendChild(field7);
+    });
+  })
+  .catch(error => console.error(error));
+
+  const form1 = document.getElementById('update-record-form');
+
+form1.addEventListener('submit', (event) => {
+  event.preventDefault(); // prevent the default form submission behavior
+
+  const data = {
+  DivisionID: form1.field2.value,
+  MealTicket: form1.field3.value,
+  SponsorName: form1.field4.value,
+  SponsorEmail: form1.field5.value,
+  SponsorPhone: form1.field6.value,
+  name: form1.field7.value,
+
+}; 
+  
+
+  
+  const schoolid = myVariable; // replace with the actual ID of the user to update
+  const foward = `https://math.gswcm.net/school.html?ID=${id}`
+  const name = form1.field7.value;
+
+  console.log(data)
+
+fetch(`https://math.gswcm.net:443/JS/update_school/${schoolid}`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  })
+    .then(response => response.text())
+    .then(data => {
+      console.log(data); // outputs "User updated"
+    })
+    .catch(error => {
+      console.error(error);
+    });
+    //location.reload(true);
+    alert('Updated')
+    window.location.replace(foward)
+});
+
+})
+
+
+  </script>
+        
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta2/dist/js/bootstrap-select.min.js"></script>
+</body>
+
+</html>

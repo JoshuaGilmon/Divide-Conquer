@@ -1,0 +1,24 @@
+.gsw-primary{
+    background-color: #00205b;
+}
+
+.gsw-secondary{
+    background-color: #C69214;
+}
+
+.gsw-text-primary{
+    color: #00205b;
+}
+
+.gsw-text-secondary{
+    color: #C69214;
+}
+
+ .flexContainer {
+            display: flex;
+				justify-content: center;
+}
+
+.g-recaptcha div {
+    margin-left: auto; margin-right: auto;
+}

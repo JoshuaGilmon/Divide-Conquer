@@ -1,20 +1,18 @@
 {
-  "name": "divide-conquer",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/JoshuaGilmon/Divide-Conquer.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/JoshuaGilmon/Divide-Conquer/issues"
-  },
-  "homepage": "https://github.com/JoshuaGilmon/Divide-Conquer#readme"
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "mongodb": "^5.1.0",
+    "mongoose": "^7.0.2",
+    "mysql": "^2.18.1",
+    "nodemailer": "^6.9.1",
+    "nodemon": "^2.0.22",
+    "qrcode": "^1.5.1",
+    "randomstring": "^1.2.3",
+    "shelljs": "^0.8.5",
+    "speakeasy": "^2.0.0",
+    "svg-captcha": "^1.4.0"
+  }
 }
